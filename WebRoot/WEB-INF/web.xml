@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<display-name></display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+	
+	<!-- 对后台资源进行权限控制 -->
+	<filter>
+		<filter-name>UrlFilter</filter-name>
+		<filter-class>com.mo.filter.UrlFilter</filter-class>
+	</filter>
+	<!-- 统计访问量 -->
+	<filter>
+		<filter-name>VisitCount</filter-name>
+		<filter-class>com.mo.filter.VisitCount</filter-class>
+	</filter>
+	<!-- IP相关 -->
+	<filter>
+		<filter-name>IpInfoFilter</filter-name>
+		<filter-class>com.mo.filter.IpInfoFilter</filter-class>
+	</filter>
+	
+	<!-- 对后台资源进行权限控制 -->
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>/Manage</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>/addMessages.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>/addCategory.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>/manage.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>UrlFilter</filter-name>
+		<url-pattern>/addArticleDaily.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- 统计访问量 -->
+	<filter-mapping>
+		<filter-name>VisitCount</filter-name>
+		<url-pattern>/Client</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>VisitCount</filter-name>
+		<url-pattern>/about.jsp</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>VisitCount</filter-name>
+		<url-pattern>/bigData.jsp</url-pattern>
+	</filter-mapping>
+	
+	<!-- IP相关 -->
+	<filter-mapping>
+		<filter-name>IpInfoFilter</filter-name>
+		<url-pattern>/bigData.jsp</url-pattern>
+	</filter-mapping>
+
+	<servlet>
+		<servlet-name>/Client</servlet-name>
+		<servlet-class>com.mo.control.Client</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>/Manage</servlet-name>
+		<servlet-class>com.mo.control.Manage</servlet-class>
+	</servlet>
+	<!-- 测试servlet -->
+	<servlet>
+		<servlet-name>TestSer</servlet-name>
+		<servlet-class>com.mo.test.TestSer</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>/Client</servlet-name>
+		<url-pattern>/Client</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>/Manage</servlet-name>
+		<url-pattern>/Manage</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>/Manage</servlet-name>
+		<url-pattern>/ManageLogin</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>TestSer</servlet-name>
+		<url-pattern>/TestSer</url-pattern>
+	</servlet-mapping>
+	
+	
+	<error-page>
+		<error-code>java.lang.Exception</error-code>
+		<location>/error.jsp</location>
+	</error-page>
+	
+</web-app>
