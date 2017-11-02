@@ -288,7 +288,7 @@ public class Manage extends HttpServlet {
 		//验证账户密码
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
-		if("manage".equals(username) && "123".equals(password)) {
+		if("****".equals(username) && "****".equals(password)) {
 			HttpSession session = req.getSession();
 			try {
 				
