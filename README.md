@@ -17,6 +17,3 @@ README
 
 ****
 ## 目录
-* [第一章:Java多线程技能](/chapter1/src/test/Test1.java)
-
-
